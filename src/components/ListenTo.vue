@@ -4,6 +4,7 @@
     <hr>
     case2:<input v-model="message.foo.bar.age" type="text">
   </div>
+  it means I'm ok
 </template>
 
 <script setup lang="ts">
