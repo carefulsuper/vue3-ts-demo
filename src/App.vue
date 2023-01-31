@@ -9,12 +9,17 @@
     <router-link replace to="/computed"><button>计算</button></router-link>
     <router-link replace to="/shop"><button>购买</button></router-link>
     <router-link replace to="/listen"><button>侦听</button></router-link>
+    <router-link replace to="/life"><button>生命周期</button></router-link>
+    <FatherSon :title="name" ref="FatherSon"></FatherSon>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref ,isRef,shallowRef } from 'vue'
 import type { Ref } from 'vue'
+import FatherSon from './components/FatherSon.vue'
+// const FatherSon=ref<InstanceType<typeof FatherSon>>()
+let name="小满"
 //shallowRef 浅层次的相应
 //ref 深层次的相应
 //不能一起写，一起写造成视图更新
