@@ -1,42 +1,39 @@
 <template>
-
-  <div>
-  <div v-for="item in arr" :style="style">{{ item }}</div>
-  <div>{{Me}}</div>
-    <button @click="change">修改</button>
+  <div class="content">
+    <button @click="flag=!flag">switch</button>
+    <transition name="fade">
+      <div v-if="flag" class="box"></div>
+    </transition>
     <router-view></router-view>
     <router-link replace to="/hello"><button>login</button></router-link>
-    <router-link replace to="/computed"><button>计算</button></router-link>
-    <router-link replace to="/shop"><button>购买</button></router-link>
-    <router-link replace to="/listen"><button>侦听</button></router-link>
-    <router-link replace to="/life"><button>生命周期</button></router-link>
-    <FatherSon :title="name" ref="FatherSon"></FatherSon>
-  </div>
+    <A></A>
+    <B></B>
+   </div>
 </template>
 
 <script setup lang="ts">
-import { ref ,isRef,shallowRef } from 'vue'
-import type { Ref } from 'vue'
-import FatherSon from './components/FatherSon.vue'
-// const FatherSon=ref<InstanceType<typeof FatherSon>>()
-let name="小满"
+import { ref  } from 'vue'
+import 'animate.css'
 //shallowRef 浅层次的相应
-//ref 深层次的相应
-//不能一起写，一起写造成视图更新
-const Me=ref({name:"123"})
-
-const change = () =>{
-  Me.value.name="234"
-  console.log(Me)
-}
-const arr:string[]=['1','2','3']
-
-// const good:string="haohaohao"
-const style={
-  color:'red',
-  border:'1px solid #ccc'
-}
+const flag=ref<boolean>(true)
 </script>
-<style lang="sass">
-
+<style lang="sass" scoped>
+.box
+  width: 200px
+  height: 200px
+  background-color: yellowgreen
+.fade-enter-from
+  width: 0
+  height: 0
+.fade-enter-active
+  transition: all 1.5s ease
+.fade-enter-to
+  width: 200px
+  height: 200px
+  background-color: gray
+.fade-leave-active
+  transition: all 5s ease
+.fade-leave-to
+  width: 0
+  height: 0
 </style>

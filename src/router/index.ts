@@ -5,23 +5,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: "/hello",
         component: () => import("../components/HelloWorld.vue"),
-    },
-    {
-        path: "/computed",
-        component: () => import("../components/MyComputed.vue"),
-    },
-    {
-        path: "/shop",
-        component: () => import("../components/ShoppingCart.vue"),
-    },
-    {
-        path: "/listen",
-        component: () => import("../components/ListenTo.vue"),
-    },
-    {
-        path: "/life",
-        component: () => import("../components/LifeCycle.vue"),
-    },
+    }
 ];
 // 1.返回一个 router 实列，为函数，里面有配置项（对象） history
 const router = createRouter({
